@@ -6,7 +6,7 @@ PoC para comparar el trabajo que realiza k6, JMeter y Gatling en una prueba al [
 
 [k6](https://k6.io) es un SaaS que permite realizar pruebas de carga. Es muy liviano y fácil de utilizar.
 
-Esta PoC está hecha usando JavaScript.
+Este ejercicio está hecho usando JavaScript.
 
 ### Uso
 
@@ -35,4 +35,22 @@ Descargar [JMeter](https://jmeter.apache.org/download_jmeter.cgi) y correr el sc
 
 ## Gatling
 
+Tomado de [gatling-gradle-plugin-demo](https://github.com/gatling/gatling-gradle-plugin-demo). [Gatling](https://gatling.io) es una solución open-source para hacer pruebas de carga.
 
+Este ejercicio está hecho usando Scala.
+
+### Uso
+
+* Correr todas las simulaciones de Gatling:
+
+```bash
+cd gatling
+./gradlew gatlingRun
+```
+
+* Correr una simulación sencilla por su FQN (fully qualified class name):
+
+```bash
+cd gatling
+./gradlew gatlingRun-main.StarWarsSimulation
+```

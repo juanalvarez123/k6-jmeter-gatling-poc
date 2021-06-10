@@ -8,9 +8,3 @@ gatling {
   logLevel = 'WARN' // logback root level
   logHttp = 'NONE' // set to 'ALL' for all HTTP traffic in TRACE, 'FAILURES' for failed HTTP traffic in DEBUG
 }
-
-/* maven central is added by default, uncomment and add more custom repositories
-repositories {
-    mavenCentral()
-}
-*/
