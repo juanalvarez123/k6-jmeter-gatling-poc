@@ -6,10 +6,10 @@ export default function () {
 
     // Assertions
     check(request, {
-        'Response has the attribute "name"': (response) => JSON.parse(
-            response.body).hasOwnProperty('name'),
-        'Character is Luke Skywalker': (response) => JSON.parse(
-            response.body).name === 'Luke Skywalker'
+        'Response has the attribute "name"': (response) =>
+            JSON.parse(response.body).hasOwnProperty('name'),
+        'Character is Luke Skywalker': (response) =>
+            JSON.parse(response.body).name === 'Luke Skywalker'
     });
 
     sleep(1);
