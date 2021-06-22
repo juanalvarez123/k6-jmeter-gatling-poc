@@ -7,7 +7,7 @@ class StarWarsSimulation extends Simulation {
   val httpProtocol = http
     .baseUrl("https://swapi.dev")
 
-  val scn = scenario("Scenario Name")
+  val scn = scenario("Vehículo válido")
     .exec(http("request_1")
       .get("/api/vehicles/4")
       .check(status.is(200))
