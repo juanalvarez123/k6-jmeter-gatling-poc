@@ -49,7 +49,7 @@
           <collectionProp name="Asserion.test_strings">
             <stringProp name="-428162292">&quot;name&quot;:&quot;Tatooine&quot;</stringProp>
           </collectionProp>
-          <stringProp name="TestPlan.comments">Valida textualmente que un atributo y su valor esten en la respuesta</stringProp>
+          <stringProp name="TestPlan.comments">Valida textualmente que un atributo y su valor estén en la respuesta</stringProp>
           <stringProp name="Assertion.custom_message"></stringProp>
           <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
           <boolProp name="Assertion.assume_success">false</boolProp>
@@ -57,7 +57,7 @@
         </ResponseAssertion>
         <hashTree/>
         <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Planet name (JSON Assertion)" enabled="true">
-          <stringProp name="TestPlan.comments">Valida por estructura que un atributo este en la respuesta y tenga un valor</stringProp>
+          <stringProp name="TestPlan.comments">Valida por estructura que un atributo esté en la respuesta y tenga un valor</stringProp>
           <stringProp name="JSON_PATH">name</stringProp>
           <stringProp name="EXPECTED_VALUE">Tatooine</stringProp>
           <boolProp name="JSONVALIDATION">true</boolProp>
@@ -67,7 +67,7 @@
         </JSONPathAssertion>
         <hashTree/>
         <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Planet version (JSON Assertion)" enabled="true">
-          <stringProp name="TestPlan.comments">Valida por estructura que un atributo este en la respuesta y tenga un valor</stringProp>
+          <stringProp name="TestPlan.comments">Valida por estructura que un atributo esté en la respuesta y tenga un valor</stringProp>
           <stringProp name="JSON_PATH">version</stringProp>
           <stringProp name="EXPECTED_VALUE">1.0</stringProp>
           <boolProp name="JSONVALIDATION">true</boolProp>

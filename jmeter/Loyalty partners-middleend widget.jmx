@@ -16,7 +16,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="x-auth-token" elementType="Argument">
             <stringProp name="Argument.name">x-auth-token</stringProp>
-            <stringProp name="Argument.value">2fe564c5f2318c7955d2aa67359d7ac4120ec2a0ad68183144327d837f97a190</stringProp>
+            <stringProp name="Argument.value">34ef487b95586bd3435e880f0a15f541ac5efed46b473d1fa78b68bb4ab81c51</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -88,7 +88,7 @@
           <collectionProp name="Asserion.test_strings">
             <stringProp name="-1942969261">&quot;elements&quot;:[]</stringProp>
           </collectionProp>
-          <stringProp name="TestPlan.comments">Valida textualmente que un atributo y su valor esten en la respuesta</stringProp>
+          <stringProp name="TestPlan.comments">Valida textualmente que un atributo y su valor estén en la respuesta</stringProp>
           <stringProp name="Assertion.custom_message"></stringProp>
           <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
           <boolProp name="Assertion.assume_success">false</boolProp>
@@ -96,7 +96,7 @@
         </ResponseAssertion>
         <hashTree/>
         <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="event_data - level (JSON Assertion 1)" enabled="true">
-          <stringProp name="TestPlan.comments">Valida por estructura que un atributo este en la respuesta</stringProp>
+          <stringProp name="TestPlan.comments">Valida por estructura que un atributo esté en la respuesta</stringProp>
           <stringProp name="JSON_PATH">event_data.level</stringProp>
           <stringProp name="EXPECTED_VALUE"></stringProp>
           <boolProp name="JSONVALIDATION">false</boolProp>
@@ -106,7 +106,7 @@
         </JSONPathAssertion>
         <hashTree/>
         <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="header - has_divider (JSON Assertion 2)" enabled="true">
-          <stringProp name="TestPlan.comments">Valida por estructura que un atributo este en la respuesta y tenga un valor</stringProp>
+          <stringProp name="TestPlan.comments">Valida por estructura que un atributo esté en la respuesta y tenga un valor</stringProp>
           <stringProp name="JSON_PATH">header.has_divider</stringProp>
           <stringProp name="EXPECTED_VALUE">true</stringProp>
           <boolProp name="JSONVALIDATION">true</boolProp>
@@ -178,11 +178,11 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="gradient_color (Response Assertion)" enabled="true">
+        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="title (Response Assertion)" enabled="true">
           <collectionProp name="Asserion.test_strings">
-            <stringProp name="327027301">&quot;gradient_color&quot;:&quot;0, 100, 255&quot;</stringProp>
+            <stringProp name="1017448616">&quot;title&quot;:&quot;Benefícios do Mercado Pontos&quot;</stringProp>
           </collectionProp>
-          <stringProp name="TestPlan.comments">Valida textualmente que un atributo y su valor esten en la respuesta</stringProp>
+          <stringProp name="TestPlan.comments">Valida textualmente que un atributo y su valor estén en la respuesta</stringProp>
           <stringProp name="Assertion.custom_message"></stringProp>
           <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
           <boolProp name="Assertion.assume_success">false</boolProp>
@@ -190,7 +190,7 @@
         </ResponseAssertion>
         <hashTree/>
         <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="elements - picture - gradient_color (JSON Assertion 1)" enabled="true">
-          <stringProp name="TestPlan.comments">Valida por estructura que un atributo este en la respuesta</stringProp>
+          <stringProp name="TestPlan.comments">Valida por estructura que un atributo esté en la respuesta</stringProp>
           <stringProp name="JSON_PATH">elements[1].picture.gradient_color</stringProp>
           <stringProp name="EXPECTED_VALUE"></stringProp>
           <boolProp name="JSONVALIDATION">false</boolProp>
@@ -200,7 +200,7 @@
         </JSONPathAssertion>
         <hashTree/>
         <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="elements - title - label (JSON Assertion 2)" enabled="true">
-          <stringProp name="TestPlan.comments">Valida por estructura que un atributo este en la respuesta y tenga un valor</stringProp>
+          <stringProp name="TestPlan.comments">Valida por estructura que un atributo esté en la respuesta y tenga un valor</stringProp>
           <stringProp name="JSON_PATH">elements[1].title.label</stringProp>
           <stringProp name="EXPECTED_VALUE">40% OFF</stringProp>
           <boolProp name="JSONVALIDATION">true</boolProp>
