@@ -53,8 +53,7 @@ export default function () {
     'Title has value': (response) =>
         JSON.parse(response.body).title === 'Benefícios do Mercado Pontos',
     'gradient_color in picture in elements exists': (response) =>
-        JSON.parse(response.body).elements[1].picture.hasOwnProperty(
-            'gradient_color'),
+        JSON.parse(response.body).elements[1].picture.hasOwnProperty('gradient_color'),
     'label in title in elements has value': (response) =>
         JSON.parse(response.body).elements[1].title.label === '40% OFF'
   });
