@@ -15,17 +15,31 @@
 							"const schema = {",
 							"    \"type\": \"object\",",
 							"    \"properties\": {",
-							"        \"title\": { \"type\": \"string\" }",
+							"        \"event_data\": { ",
+							"            \"type\": \"object\",",
+							"            \"properties\": {",
+							"                \"level\": { \"type\": \"number\" }",
+							"            },",
+							"            \"required\": [\"level\"]",
+							"        }",
 							"    },",
-							"    \"required\": [\"title\"]",
+							"    \"required\": [\"event_data\"]",
 							"};",
 							"",
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
 							"",
-							"pm.test(\"Title is 'A New Hope'\", function () {",
-							"    pm.expect(pm.response.json().title).to.equal(\"A New Hope\")",
+							"pm.test(\"Response has empty elements'\", function () {",
+							"    pm.expect(pm.response.json().elements.length).to.eql(0)",
+							"});",
+							"",
+							"pm.test(\"level in event_data exists\", function () {",
+							"    pm.expect(pm.response.json().event_data.level).exist",
+							"});",
+							"",
+							"pm.test(\"has_divider in header having true value\", function () {",
+							"    pm.expect(pm.response.json().header.has_divider).to.equal(true)",
 							"});",
 							"",
 							"pm.test(\"Validate schema\", () => {",
@@ -42,7 +56,7 @@
 				"header": [
 					{
 						"key": "x-auth-token",
-						"value": "2fe564c5f2318c7955d2aa67359d7ac4120ec2a0ad68183144327d837f97a190",
+						"value": "{{xAuthToken}}",
 						"type": "text"
 					},
 					{
@@ -52,7 +66,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://{{scope}}_partners-middleend.furyapps.io/content_widget?user_id=729054671&site_id=MLB",
+					"raw": "https://{{scope}}_partners-middleend.furyapps.io/content_widget?user_id={{userId}}&site_id={{siteId}}",
 					"protocol": "https",
 					"host": [
 						"{{scope}}_partners-middleend",
@@ -65,11 +79,11 @@
 					"query": [
 						{
 							"key": "user_id",
-							"value": "729054671"
+							"value": "{{userId}}"
 						},
 						{
 							"key": "site_id",
-							"value": "MLB"
+							"value": "{{siteId}}"
 						}
 					]
 				}
@@ -86,17 +100,38 @@
 							"const schema = {",
 							"    \"type\": \"object\",",
 							"    \"properties\": {",
-							"        \"title\": { \"type\": \"string\" }",
+							"        \"title\": { \"type\": \"string\" },",
+							"        \"elements\": { ",
+							"            \"type\": \"array\",",
+							"            \"properties\": {",
+							"                \"picture\": {",
+							"                    \"type\": \"object\",",
+							"                    \"properties\": {",
+							"                        \"gradient_color\": { \"type\": \"string\" }",
+							"                    },",
+							"                    \"required\": [\"gradient_color\"]",
+							"                }",
+							"            },",
+							"            \"required\": [\"picture\"]",
+							"        }",
 							"    },",
-							"    \"required\": [\"title\"]",
+							"    \"required\": [\"title\", \"elements\"]",
 							"};",
 							"",
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
 							"",
-							"pm.test(\"Title is 'A New Hope'\", function () {",
-							"    pm.expect(pm.response.json().title).to.equal(\"A New Hope\")",
+							"pm.test(\"Title has value'\", function () {",
+							"    pm.expect(pm.response.json().title).to.equal(\"Benefícios do Mercado Pontos\")",
+							"});",
+							"",
+							"pm.test(\"gradient_color in picture in elements exists\", function () {",
+							"    pm.expect(pm.response.json().elements[1].picture.gradient_color).exist",
+							"});",
+							"",
+							"pm.test(\"label in title in elements has value\", function () {",
+							"    pm.expect(pm.response.json().elements[1].title.label).to.equal(\"40% OFF\")",
 							"});",
 							"",
 							"pm.test(\"Validate schema\", () => {",
@@ -113,7 +148,7 @@
 				"header": [
 					{
 						"key": "x-auth-token",
-						"value": "2fe564c5f2318c7955d2aa67359d7ac4120ec2a0ad68183144327d837f97a190",
+						"value": "{{xAuthToken}}",
 						"type": "text"
 					},
 					{
@@ -123,7 +158,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://{{scope}}_partners-middleend.furyapps.io/content_widget?user_id=729054671&site_id=MLB",
+					"raw": "https://{{scope}}_partners-middleend.furyapps.io/content_widget?user_id={{userId}}&site_id={{siteId}}",
 					"protocol": "https",
 					"host": [
 						"{{scope}}_partners-middleend",
@@ -136,11 +171,11 @@
 					"query": [
 						{
 							"key": "user_id",
-							"value": "729054671"
+							"value": "{{userId}}"
 						},
 						{
 							"key": "site_id",
-							"value": "MLB"
+							"value": "{{siteId}}"
 						}
 					]
 				}
@@ -154,24 +189,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"const schema = {",
-							"    \"type\": \"object\",",
-							"    \"properties\": {",
-							"        \"title\": { \"type\": \"string\" }",
-							"    },",
-							"    \"required\": [\"title\"]",
-							"};",
-							"",
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Title is 'A New Hope'\", function () {",
-							"    pm.expect(pm.response.json().title).to.equal(\"A New Hope\")",
-							"});",
-							"",
-							"pm.test(\"Validate schema\", () => {",
-							"    pm.response.to.have.jsonSchema(schema);",
 							"});",
 							""
 						],
@@ -184,7 +203,7 @@
 				"header": [
 					{
 						"key": "x-auth-token",
-						"value": "2fe564c5f2318c7955d2aa67359d7ac4120ec2a0ad68183144327d837f97a190",
+						"value": "{{xAuthToken}}",
 						"type": "text"
 					},
 					{
@@ -194,7 +213,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://{{scope}}_partners-middleend.furyapps.io/content_widget?user_id=729054671&site_id=MLB",
+					"raw": "https://{{scope}}_partners-middleend.furyapps.io/content_widget?user_id={{userId}}&site_id={{siteId}}",
 					"protocol": "https",
 					"host": [
 						"{{scope}}_partners-middleend",
@@ -207,11 +226,11 @@
 					"query": [
 						{
 							"key": "user_id",
-							"value": "729054671"
+							"value": "{{userId}}"
 						},
 						{
 							"key": "site_id",
-							"value": "MLB"
+							"value": "{{siteId}}"
 						}
 					]
 				}
