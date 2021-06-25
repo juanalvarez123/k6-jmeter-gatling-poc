@@ -103,16 +103,19 @@
 							"        \"title\": { \"type\": \"string\" },",
 							"        \"elements\": { ",
 							"            \"type\": \"array\",",
-							"            \"properties\": {",
-							"                \"picture\": {",
-							"                    \"type\": \"object\",",
-							"                    \"properties\": {",
-							"                        \"gradient_color\": { \"type\": \"string\" }",
-							"                    },",
-							"                    \"required\": [\"gradient_color\"]",
-							"                }",
-							"            },",
-							"            \"required\": [\"picture\"]",
+							"            \"items\": {",
+							"                \"type\": \"object\",",
+							"                \"properties\": {",
+							"                    \"picture\": {",
+							"                        \"type\": \"object\",",
+							"                        \"properties\": {",
+							"                            \"gradient_color\": { \"type\": \"string\" }",
+							"                        },",
+							"                        \"required\": [\"gradient_color\"]",
+							"                    }",
+							"                },",
+							"                \"required\": [\"picture\"]",
+							"            }",
 							"        }",
 							"    },",
 							"    \"required\": [\"title\", \"elements\"]",
@@ -154,6 +157,7 @@
 					{
 						"key": "x-client-name",
 						"value": "mobile",
+						"description": "Si no se envía, default: desktop",
 						"type": "text"
 					}
 				],
@@ -209,6 +213,7 @@
 					{
 						"key": "x-client-name",
 						"value": "desktop",
+						"description": "Si no se envía, default: desktop",
 						"type": "text"
 					}
 				],
@@ -231,6 +236,310 @@
 						{
 							"key": "site_id",
 							"value": "{{siteId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Widget (Nativo) deslogueado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const schema = {",
+							"    \"type\": \"object\",",
+							"    \"properties\": {",
+							"        \"elements\": { \"type\": \"array\" },",
+							"        \"content_cards\": {",
+							"            \"type\": \"object\",",
+							"            \"properties\": {",
+							"                \"cards\": {",
+							"                    \"type\": \"array\",",
+							"                    \"items\": {",
+							"                        \"type\": \"object\",",
+							"                        \"properties\": {",
+							"                            \"image\": { \"type\": \"string\" },",
+							"                            \"link\": { \"type\": \"string\" }",
+							"                        },",
+							"                        \"required\": [\"image\", \"link\"]",
+							"                    }",
+							"                }",
+							"            },",
+							"            \"required\": [\"cards\"]",
+							"        },",
+							"        \"event_data\": { ",
+							"            \"type\": \"object\",",
+							"            \"properties\": {",
+							"                \"level\": { \"type\": \"number\" }",
+							"            },",
+							"            \"required\": [\"level\"]",
+							"        }",
+							"    },",
+							"    \"required\": [\"elements\", \"content_cards\", \"event_data\"]",
+							"};",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has empty elements\", function () {",
+							"    pm.expect(pm.response.json().elements.length).to.eql(0)",
+							"});",
+							"",
+							"pm.test(\"All images are URLs\", function () {",
+							"    for (var position in pm.response.json().content_cards.cards) {",
+							"        var card = pm.response.json().content_cards.cards[position]",
+							"        pm.expect(card.image).to.match(/^https:\\/\\/.+/)",
+							"    }",
+							"});",
+							"",
+							"pm.test(\"All links are deep links\", function () {",
+							"    for (var position in pm.response.json().content_cards.cards) {",
+							"        var card = pm.response.json().content_cards.cards[position]",
+							"        pm.expect(card.link).to.match(/^meli:\\/\\/.+/)",
+							"    }",
+							"});",
+							"",
+							"pm.test(\"Validate schema\", () => {",
+							"    pm.response.to.have.jsonSchema(schema);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "MercadoLibre-Android/10.555.0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://internal-api.mercadolibre.com/partners_middleend/content_widget?user_id={{userId}}&site_id={{siteId}}&env={{scope}}",
+					"protocol": "https",
+					"host": [
+						"internal-api",
+						"mercadolibre",
+						"com"
+					],
+					"path": [
+						"partners_middleend",
+						"content_widget"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "{{userId}}"
+						},
+						{
+							"key": "site_id",
+							"value": "{{siteId}}"
+						},
+						{
+							"key": "env",
+							"value": "{{scope}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Widget (Mobile) deslogueado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const schema = {",
+							"    \"type\": \"object\",",
+							"    \"properties\": {",
+							"        \"title\": { \"type\": \"string\" },",
+							"        \"elements\": {",
+							"            \"type\": \"array\",",
+							"            \"items\": {",
+							"                \"type\": \"object\",",
+							"                \"properties\": {",
+							"                    \"picture\": {",
+							"                        \"type\": \"object\",",
+							"                        \"properties\": {",
+							"                            \"gradient_color\": { \"type\": \"string\" }",
+							"                        },",
+							"                        \"required\": [\"gradient_color\"]",
+							"                    }",
+							"                },",
+							"                \"required\": [\"picture\"]",
+							"            }",
+							"        }",
+							"    },",
+							"    \"required\": [\"title\", \"elements\"]",
+							"};",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Title has value\", function () {",
+							"    pm.expect(pm.response.json().title).to.equal(\"Benefícios do Mercado Pontos\")",
+							"});",
+							"",
+							"pm.test(\"All targets must be URLs without protocol\", function () {",
+							"    for (var position in pm.response.json().elements) {",
+							"        var element = pm.response.json().elements[position]",
+							"        pm.expect(element.target).to.match(/^\\/\\/www.mercadolivre.com.br.+/)",
+							"    }",
+							"});",
+							"",
+							"pm.test(\"Validate schema\", () => {",
+							"    pm.response.to.have.jsonSchema(schema);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-client-name",
+						"value": "mobile",
+						"description": "Si no se envía, default: desktop",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://internal-api.mercadolibre.com/partners_middleend/content_widget?user_id={{userId}}&site_id={{siteId}}&env={{scope}}",
+					"protocol": "https",
+					"host": [
+						"internal-api",
+						"mercadolibre",
+						"com"
+					],
+					"path": [
+						"partners_middleend",
+						"content_widget"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "{{userId}}"
+						},
+						{
+							"key": "site_id",
+							"value": "{{siteId}}"
+						},
+						{
+							"key": "env",
+							"value": "{{scope}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Widget (Mobile) para Mercado Pago",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const schema = {",
+							"    \"type\": \"object\",",
+							"    \"properties\": {",
+							"        \"title\": { \"type\": \"string\" },",
+							"        \"elements\": {",
+							"            \"type\": \"array\",",
+							"            \"items\": {",
+							"                \"type\": \"object\",",
+							"                \"properties\": {",
+							"                    \"picture\": {",
+							"                        \"type\": \"object\",",
+							"                        \"properties\": {",
+							"                            \"gradient_color\": { \"type\": \"string\" }",
+							"                        },",
+							"                        \"required\": [\"gradient_color\"]",
+							"                    }",
+							"                },",
+							"                \"required\": [\"picture\"]",
+							"            }",
+							"        }",
+							"    },",
+							"    \"required\": [\"title\", \"elements\"]",
+							"};",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Title has value\", function () {",
+							"    pm.expect(pm.response.json().title).to.equal(\"Benefícios do Mercado Pontos\")",
+							"});",
+							"",
+							"pm.test(\"All targets must be URLs without protocol pointing to Mercado Pago\", function () {",
+							"    for (var position in pm.response.json().elements) {",
+							"        var element = pm.response.json().elements[position]",
+							"        pm.expect(element.target).to.match(/^\\/\\/www.mercadopago.com.br.+/)",
+							"    }",
+							"});",
+							"",
+							"pm.test(\"Validate schema\", () => {",
+							"    pm.response.to.have.jsonSchema(schema);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{xAuthToken}}",
+						"type": "text"
+					},
+					{
+						"key": "x-client-name",
+						"value": "mobile",
+						"description": "Si no se envía, default: desktop",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{scope}}_partners-middleend.furyapps.io/content_widget?user_id={{userId}}&site_id={{siteId}}&platform=MP",
+					"protocol": "https",
+					"host": [
+						"{{scope}}_partners-middleend",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"content_widget"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "{{userId}}"
+						},
+						{
+							"key": "site_id",
+							"value": "{{siteId}}"
+						},
+						{
+							"key": "platform",
+							"value": "MP",
+							"description": "Si no se envía, default: ML"
 						}
 					]
 				}
