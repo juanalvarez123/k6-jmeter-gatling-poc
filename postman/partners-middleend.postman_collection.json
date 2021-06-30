@@ -273,9 +273,9 @@
 							"        \"event_data\": { ",
 							"            \"type\": \"object\",",
 							"            \"properties\": {",
-							"                \"level\": { \"type\": \"number\" }",
+							"                \"partner\": { \"type\": \"string\" }",
 							"            },",
-							"            \"required\": [\"level\"]",
+							"            \"required\": [\"partner\"]",
 							"        }",
 							"    },",
 							"    \"required\": [\"elements\", \"content_cards\", \"event_data\"]",
@@ -322,7 +322,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://internal-api.mercadolibre.com/partners_middleend/content_widget?user_id={{userId}}&site_id={{siteId}}&env={{scope}}",
+					"raw": "https://internal-api.mercadolibre.com/partners_middleend/content_widget?site_id={{siteId}}&env={{scope}}",
 					"protocol": "https",
 					"host": [
 						"internal-api",
@@ -334,10 +334,6 @@
 						"content_widget"
 					],
 					"query": [
-						{
-							"key": "user_id",
-							"value": "{{userId}}"
-						},
 						{
 							"key": "site_id",
 							"value": "{{siteId}}"
@@ -417,7 +413,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://internal-api.mercadolibre.com/partners_middleend/content_widget?user_id={{userId}}&site_id={{siteId}}&env={{scope}}",
+					"raw": "https://internal-api.mercadolibre.com/partners_middleend/content_widget?site_id={{siteId}}&env={{scope}}",
 					"protocol": "https",
 					"host": [
 						"internal-api",
@@ -429,10 +425,6 @@
 						"content_widget"
 					],
 					"query": [
-						{
-							"key": "user_id",
-							"value": "{{userId}}"
-						},
 						{
 							"key": "site_id",
 							"value": "{{siteId}}"
