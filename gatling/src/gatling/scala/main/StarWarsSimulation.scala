@@ -1,8 +1,5 @@
 package main
 
-import io.gatling.core.Predef._
-import io.gatling.http.Predef._
-
 class StarWarsSimulation extends Simulation {
   val httpProtocol = http
     .baseUrl("https://swapi.dev")

@@ -1,8 +1,5 @@
 package main
 
-import io.gatling.core.Predef._
-import io.gatling.http.Predef._
-
 class WidgetSimulation extends Simulation {
   val userId = "729054671";
   val siteId = "MLB";

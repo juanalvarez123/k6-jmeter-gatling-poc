@@ -53,7 +53,7 @@ k6 run partners-middleend-widget.js
 
 ## JMeter
 
-[JMeter](https://jmeter.apache.org) es una herramienta que permite realizar pruebas de carga. Tiene un cliente que se ejecuta localmente y una interfaz gráfica donde es posible agregar las pruebas HTTP y sus validaciones.
+[JMeter](https://jmeter.apache.org) es una herramienta que permite realizar pruebas de carga. Tiene un cliente que se ejecuta localmente y una interfaz gráfica donde es posible agregar pruebas HTTP y sus validaciones.
 
 ### Uso
 
