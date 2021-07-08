@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "01ac5eb1-0f6c-41e7-bddb-7c90a3ba8809",
 		"name": "partners-middleend",
+		"description": "En esta colección tenemos:\n\n<ul>\n<li>Requests para widgets en diferentes plataformas (Nativo, Mobile, Desktop)</li>\n<li>Requests para widgets con usuarios logueados y no logueados</li>\n<li>Requests para widgets en ML y MP</li>\n</ul>\n\nCada uno de los requests tiene sus propias pruebas unitarias donde se verifica el código HTTP de respuesta, estructura de la respuesta, campos obligatorios y opcionales, HTTP Urls, deeplinks, entre otros.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
